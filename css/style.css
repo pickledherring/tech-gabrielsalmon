@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Sections:
+     1. Type scale (variables)
+     2. Base / typography
+     3. Layout (container, borders)
+     4. Navigation
+     5. Components — cards (hover, social links)
+     6. Components — software project cards
+     7. Components — blog posts
+     8. Responsive
+   ========================================================================== */
+
+/* 1. Type scale ------------------------------------------------------------ */
+:root {
+    --fs-min: 1.05rem;   /* blog date / image credits*/
+    --fs-base: 1.3rem;   /* body copy, nav links, card sub-labels */
+    --fs-h5: 1.55rem;    /* card titles (h5) */
+    --fs-h3: 1.8rem;     /* blog post titles (h3) */
+    --fs-h2: 2.05rem;    /* section headings (h2) */
+    --fs-max: 2.5rem;    /* page title (h1) */
+}
+
+/* 2. Base / typography ----------------------------------------------------- */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #14191f;
+    letter-spacing: normal;
+    font-size: var(--fs-base);
+    line-height: 1.6;
+}
+
+main {
+    background-color: #c2e1f3c7;
+}
+
+main h1 { font-size: var(--fs-max); }
+main h2 { font-size: var(--fs-h2); }
+main h3 { font-size: var(--fs-h3); }
+main h5 { font-size: var(--fs-h5); }
+main h6 { font-size: var(--fs-base); }
+
+/* 3. Layout ---------------------------------------------------------------- */
+.main-col {
+    max-width: fit-content;
+}
+
+.main-container {
+    position: relative;
+    max-width: 1200px;
+}
+
+.grey-border   { border-color: #2c3e50 !important; border-width: 3px !important; }
+.purple-border { border-color: #8b4789 !important; border-width: 3px !important; }
+
+/* Translucent fill behind bordered image/content boxes */
+div.border {
+    background-color: rgba(169, 180, 212, 0.252);
+}
+
+/* 4. Navigation ------------------------------------------------------------ */
+.vertical-nav {
+    position: sticky;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 2rem 1.5rem 2rem 0;
+    border-right: 3px solid #2c3e50;
+    margin-top: 2rem;
+}
+
+a.nav-page-link {
+    display: block;
+    text-align: right;
+    color: #ebe5d9;
+    text-decoration: none;
+    padding: 0.3rem 0;
+    margin-bottom: 0.6rem;
+    font-size: var(--fs-base);
+    transition: color 0.2s;
+}
+
+a.nav-page-link:hover {
+    color: #c97fc7;
+}
+
+a.nav-page-link.active {
+    color: #c97fc7;
+    text-decoration: underline;
+}
+
+/* 5. Cards — lift-on-hover, social links ----------------------------------- */
+.hover-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-width: 3px !important;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Round badge behind social SVG icons */
+.social-icon-circle {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.3);
+    font-size: 1.5rem;   /* icon glyph size */
+}
+
+.social-icon-circle-dark {
+    border-color: rgba(44,62,80,0.4);
+    background: rgba(44,62,80,0.08);
+}
+
+/* Social link cards (software page, Connect section) */
+.social-card {
+    background: rgba(70,47,70,0.1);
+    border: 2px solid rgba(44,62,80,0.3);
+}
+
+.social-card-title {
+    color: #2c3e50;
+}
+
+.social-card-subtitle {
+    font-size: var(--fs-min);
+    color: #2c3e50;
+    opacity: 0.7;
+}
+
+/* 6. Software project cards (software page) -------------------------------- */
+.project-card {
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.project-card-body {
+    padding: 1.25rem;
+}
+
+.project-card-credit {
+    font-size: var(--fs-min);
+    opacity: 0.6;
+}
+
+.project-card-link {
+    color: #2c3e50;
+}
+
+/* 7. Blog posts (blog page) ------------------------------------------------ */
+.blog-post {
+    padding-left: 1.5rem;
+    border-left: 4px solid #8b4789;
+    margin-bottom: 3rem;
+}
+
+.blog-post-date {
+    font-size: var(--fs-min);
+    color: #2c3e50;
+    opacity: 0.65;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.05rem;
+}
+
+.blog-post-title {
+    font-size: var(--fs-h3);
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+}
+
+.blog-post-content {
+    font-size: var(--fs-base);
+}
+
+.blog-post-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.blog-post-images img {
+    height: 260px;
+    width: auto;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    object-fit: cover;
+    flex: 0 0 auto;
+    max-width: 100%;
+}
+
+/* 8. Responsive ------------------------------------------------------------ */
+@media (max-width: 991px) {
+    .vertical-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: right;
+        justify-content: center;
+        border-right: none;
+        border-bottom: 3px solid #2c3e50;
+        padding: 1rem 1rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        gap: 1.5rem;
+    }
+
+    a.nav-page-link {
+        text-align: center;
+        margin-bottom: 0;
+    }
+}
